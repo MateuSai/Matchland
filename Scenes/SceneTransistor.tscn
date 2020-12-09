@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/SceneTransistor.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "transition_animation"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Panel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -160, 0 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -160, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/Panel2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 0 ), Vector2( 160, 0 ), Vector2( 160, 0 ), Vector2( 320, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "replace_scene"
+} ]
+}
+
+[node name="SceneTransistor" type="CanvasLayer"]
+layer = 2
+script = ExtResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/transition_animation = SubResource( 1 )
+
+[node name="Panel" type="Panel" parent="AnimationPlayer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -160.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="AnimationPlayer"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 159.999
+margin_bottom = 1.52588e-05
+__meta__ = {
+"_edit_use_anchors_": false
+}

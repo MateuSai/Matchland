@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/at01.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Fonts/tinypixel/tinypixel.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scripts/Advertise.gd" type="Script" id=3]
+[ext_resource path="res://Art/Shop.png/0.png" type="Texture" id=4]
+[ext_resource path="res://Art/UI/Unlock Shop Panel.png" type="Texture" id=5]
+[ext_resource path="res://Art/Shop.png/1.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=3]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 7
+font_data = ExtResource( 2 )
+
+[node name="Advertise" type="CanvasModulate"]
+pause_mode = 2
+color = Color( 0.423529, 0.376471, 0.376471, 1 )
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -60.0
+margin_right = 160.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 320, 150 )
+custom_constants/separation = 90
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/VBoxContainer"]
+margin_top = 11.0
+margin_right = 320.0
+margin_bottom = 41.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/CenterContainer"]
+margin_left = 117.0
+margin_right = 202.0
+margin_bottom = 30.0
+texture = ExtResource( 5 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/VBoxContainer/CenterContainer/TextureRect"]
+margin_right = 86.0
+margin_bottom = 28.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Message" type="Label" parent="CanvasLayer/VBoxContainer/CenterContainer/TextureRect/VBoxContainer"]
+margin_top = 2.0
+margin_right = 86.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 3 )
+text = "Shop unlocked"
+align = 1
+
+[node name="Sprite" type="TextureRect" parent="CanvasLayer/VBoxContainer/CenterContainer/TextureRect/VBoxContainer"]
+margin_top = 19.0
+margin_right = 86.0
+margin_bottom = 26.0
+texture = ExtResource( 4 )
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_top = 131.0
+margin_right = 320.0
+margin_bottom = 139.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 0.682353 )
+text = "Tap to continue"
+align = 1
+
+[node name="LabelTween" type="Tween" parent="CanvasLayer/VBoxContainer/Label"]
+
+[node name="Shop" type="TextureButton" parent="CanvasLayer"]
+pause_mode = 2
+margin_left = 233.0
+margin_top = 159.0
+margin_right = 253.0
+margin_bottom = 166.0
+disabled = true
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="tween_completed" from="CanvasLayer/VBoxContainer/Label/LabelTween" to="." method="_on_LabelTween_tween_completed"]
+[connection signal="pressed" from="CanvasLayer/Shop" to="." method="_on_Shop_pressed"]

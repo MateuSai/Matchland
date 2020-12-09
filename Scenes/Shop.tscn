@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Art/Shop.png/0.png" type="Texture" id=1]
+[ext_resource path="res://Art/Shop.png/1.png" type="Texture" id=2]
+
+[node name="Shop" type="TextureButton"]
+pause_mode = 2
+margin_left = 233.0
+margin_top = 159.0
+margin_right = 253.0
+margin_bottom = 166.0
+disabled = true
+texture_normal = ExtResource( 1 )
+texture_hover = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

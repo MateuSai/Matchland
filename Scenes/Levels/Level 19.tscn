@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/Pieces/Horizontal Line.png" type="Texture" id=2]
+[ext_resource path="res://Art/Pieces/Yellow Piece.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=4]
+
+[node name="Level 19" instance=ExtResource( 1 )]
+turns = 20
+
+[node name="Grid" parent="." index="7"]
+width = 12
+height = 8
+vines_spaces = PoolVector2Array( 1, 0, 1, 1, 6, 5, 7, 5, 7, 4, 11, 3, 10, 3 )
+
+[node name="Goal" parent="GoalContainer" index="0"]
+goal_texture = ExtResource( 3 )
+max_needed = 99
+goal_value = "yellow"
+
+[node name="Goal2" parent="GoalContainer" index="1" instance=ExtResource( 4 )]
+goal_texture = ExtResource( 2 )
+max_needed = 5
+goal_value = "horizontal"

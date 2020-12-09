@@ -1,0 +1,151 @@
+{
+	"sheets": [
+		{
+			"name": "Levels",
+			"columns": [
+				{
+					"typeStr": "0",
+					"name": "num_level"
+				},
+				{
+					"typeStr": "3",
+					"name": "map_position_x"
+				},
+				{
+					"typeStr": "3",
+					"name": "map_position_y"
+				},
+				{
+					"typeStr": "3",
+					"name": "path_offset"
+				}
+			],
+			"lines": [
+				{
+					"num_level": "level_1",
+					"map_position_x": 78,
+					"map_position_y": 24,
+					"path_offset": 0
+				},
+				{
+					"num_level": "level_2",
+					"map_position_x": 129,
+					"map_position_y": 9,
+					"path_offset": 43
+				},
+				{
+					"num_level": "level_3",
+					"map_position_x": 135,
+					"map_position_y": 65,
+					"path_offset": 89
+				},
+				{
+					"num_level": "level_4",
+					"map_position_x": 62,
+					"map_position_y": 79,
+					"path_offset": 139
+				},
+				{
+					"num_level": "level_5",
+					"map_position_x": 73,
+					"map_position_y": 119,
+					"path_offset": 155
+				},
+				{
+					"num_level": "level_6",
+					"map_position_x": 134,
+					"map_position_y": 101,
+					"path_offset": 196
+				},
+				{
+					"num_level": "level_7",
+					"map_position_x": 133,
+					"map_position_y": 155,
+					"path_offset": 235
+				},
+				{
+					"num_level": "level_8",
+					"map_position_x": 204,
+					"map_position_y": 163,
+					"path_offset": 282
+				},
+				{
+					"num_level": "level_9",
+					"map_position_x": 157,
+					"map_position_y": 110,
+					"path_offset": 335
+				},
+				{
+					"num_level": "level_10",
+					"map_position_x": 190,
+					"map_position_y": 70,
+					"path_offset": 368
+				},
+				{
+					"num_level": "level_11",
+					"map_position_x": 238,
+					"map_position_y": 95,
+					"path_offset": 408
+				},
+				{
+					"num_level": "level_12",
+					"map_position_x": 266,
+					"map_position_y": 34,
+					"path_offset": 458
+				},
+				{
+					"num_level": "level_13",
+					"map_position_x": 279,
+					"map_position_y": 115,
+					"path_offset": 535
+				},
+				{
+					"num_level": "level_14",
+					"map_position_x": 315,
+					"map_position_y": 152,
+					"path_offset": 562
+				},
+				{
+					"num_level": "level_15",
+					"map_position_x": 348,
+					"map_position_y": 107,
+					"path_offset": 598
+				},
+				{
+					"num_level": "level_16",
+					"map_position_x": 327,
+					"map_position_y": 38,
+					"path_offset": 664
+				},
+				{
+					"num_level": "level_17",
+					"map_position_x": 390,
+					"map_position_y": 60,
+					"path_offset": 720
+				},
+				{
+					"num_level": "level_18",
+					"map_position_x": 424,
+					"map_position_y": 93,
+					"path_offset": 758
+				},
+				{
+					"num_level": "level_19",
+					"map_position_x": 366,
+					"map_position_y": 156,
+					"path_offset": 818
+				},
+				{
+					"num_level": "level_20",
+					"map_position_x": 422,
+					"map_position_y": 145,
+					"path_offset": 843
+				}
+			],
+			"separators": [],
+			"props": {}
+		}
+	],
+	"customTypes": [],
+	"compress": false
+}

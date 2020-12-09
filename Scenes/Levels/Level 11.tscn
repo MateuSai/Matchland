@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/Obstacles/Concrete.png" type="Texture" id=2]
+[ext_resource path="res://Art/Pieces/Color Bomb.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Art/Pieces/Blue Piece.png" type="Texture" id=5]
+
+[node name="Level 11" instance=ExtResource( 1 )]
+turns = 20
+
+[node name="Grid" parent="." index="7"]
+width = 14
+height = 8
+concrete_spaces = PoolVector2Array( 6, 0, 6, 1, 6, 2, 6, 3, 6, 4, 6, 5, 6, 6, 6, 7, 7, 0, 7, 1, 7, 2, 7, 3, 7, 4, 7, 5, 7, 6, 7, 7, 5, 0, 4, 0, 3, 0, 2, 0, 1, 0, 0, 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 1, 7, 2, 7, 3, 7, 4, 7, 5, 7, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 13, 1, 13, 2, 13, 3, 13, 4, 13, 5, 13, 6, 13, 7, 12, 7, 11, 7, 10, 7, 9, 7, 8, 7 )
+
+[node name="Goal" parent="GoalContainer" index="0"]
+goal_texture = ExtResource( 2 )
+max_needed = 52
+goal_value = "concrete"
+
+[node name="Goal2" parent="GoalContainer" index="1" instance=ExtResource( 4 )]
+goal_texture = ExtResource( 3 )
+max_needed = 2
+goal_value = "color"
+
+[node name="Goal3" parent="GoalContainer" index="2" instance=ExtResource( 4 )]
+goal_texture = ExtResource( 5 )
+max_needed = 70
+goal_value = "blue"

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FinalMessageSound.wav-8cf1487a9dde6e69f78a3dc734afc58d.sample"
+
+[deps]
+
+source_file="res://Sounds and Music/FinalMessageSound.wav"
+dest_files=[ "res://.import/FinalMessageSound.wav-8cf1487a9dde6e69f78a3dc734afc58d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

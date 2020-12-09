@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Art/Ship/Moving Ship.png/1.png" type="Texture" id=1]
+[ext_resource path="res://Art/Path.png" type="Texture" id=2]
+[ext_resource path="res://Art/Ship/Moving Ship.png/0.png" type="Texture" id=3]
+[ext_resource path="res://Art/Ship/Moving Ship.png/2.png" type="Texture" id=4]
+[ext_resource path="res://Art/Ship/Ship.png" type="Texture" id=5]
+[ext_resource path="res://Art/Ship/Moving Ship.png/3.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/PathTexture.gd" type="Script" id=7]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 95.4966, 53.8112, 0, 0, 0, 0, 95.6453, 46.8246, -4.25, 2.25, 4.25, -2.25, 117.75, 25.2809, -1.75, -1.25, 1.75, 1.25, 125.5, 28.5309, 0, 0, 0, 0, 123.25, 49.0309, 0, 0, 0, 0, 126.75, 68.2809, 2, -1.75, -2, 1.75, 122, 81.0309, 2.5, -4.25, -2.5, 4.25, 85.5, 97.0309, -6.75, -2.75, 6.75, 2.75, 94.25, 110.531, 0, 0, 0, 0, 119.75, 115.031, -2.49109, -2.21216, 2.49109, 2.21216, 135.842, 127.244, -13.6913, -3.67087, 13.6913, 3.67087, 171.289, 161.314, 0, 0, 0, 0, 188.751, 162.505, 0, 0, 0, 0, 200.259, 152.782, 2.71364, 6.25317, -2.71364, -6.25317, 202.64, 139.488, 0, 0, 0, 0, 191.33, 129.963, -0.707906, 5.42728, 0.707906, -5.42728, 178.234, 110.914, -4.83736, 1.65178, 4.83736, -1.65178, 188.949, 97.4214, -6.37115, 0.589921, 6.37115, -0.589921, 209.585, 99.6041, -24.0688, 9.91068, 24.0688, -9.91068, 237.762, 86.9049, -6.60712, 4.01147, 6.60712, -4.01147, 256.017, 67.0624, -6.48914, -0.235969, 6.48914, 0.235969, 275.066, 56.3474, -1.06186, -5.30929, 1.06186, 5.30929, 296.694, 73.0152, -1.29783, -5.78123, 1.29783, 5.78123, 308.599, 115.875, -4.95534, -1.41581, 4.95534, 1.41581, 317.322, 139.653, -3.06759, 4.83736, 3.06759, -4.83736, 334.159, 136.566, -0.707906, 3.18558, 0.707906, -3.18558, 336.685, 115.52, 4.71937, 3.89348, -4.71937, -3.89348, 332.195, 98.5426, 0.353953, 5.30929, -0.353953, -5.30929, 319.427, 83.3894, -4.71937, 2.59565, 4.71937, -2.59565, 334.72, 62.9044, -5.30929, -2.2417, 5.30929, 2.2417, 360.537, 61.782, 0.235969, -3.06759, -0.235969, 3.06759, 383.688, 78.198, -5.19131, -0.82589, 5.19131, 0.82589, 413.854, 99.5248, 3.53953, -0.235969, -3.53953, 0.235969, 412.731, 117.344, 3.06759, -3.06759, -3.06759, 3.06759, 387.616, 130.392, -3.7755, -2.35969, 3.7755, 2.35969, 390.563, 148.492, 0, 2.59565, 0, -2.59565, 405.997, 142.74, 0, 0, 0, 0, 405.997, 137.127 )
+}
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "moving",
+"speed": 5.0
+} ]
+
+[node name="Path" type="TextureRect"]
+texture = ExtResource( 2 )
+stretch_mode = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ShipPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ShipPath"]
+position = Vector2( 91.7459, 109.284 )
+rotation = 0.422625
+offset = 155.0
+
+[node name="Ship" type="AnimatedSprite" parent="ShipPath/PathFollow2D"]
+position = Vector2( 1.32065, 2.52606 )
+rotation = 3.14159
+frames = SubResource( 2 )
+playing = true

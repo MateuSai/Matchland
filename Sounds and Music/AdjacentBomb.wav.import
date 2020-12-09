@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/AdjacentBomb.wav-92b8cc27ccf67a536beed72c5b2f520f.sample"
+
+[deps]
+
+source_file="res://Sounds and Music/AdjacentBomb.wav"
+dest_files=[ "res://.import/AdjacentBomb.wav-92b8cc27ccf67a536beed72c5b2f520f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

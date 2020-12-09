@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/Obstacles/Ice.png" type="Texture" id=2]
+[ext_resource path="res://Art/Pieces/Orange Piece.png" type="Texture" id=3]
+[ext_resource path="res://Art/Obstacles/Lock.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=5]
+
+[node name="Level 13" instance=ExtResource( 1 )]
+turns = 20
+
+[node name="Grid" parent="." index="7"]
+width = 10
+height = 8
+ice_spaces = PoolVector2Array( 0, 7, 2, 7, 4, 7, 6, 7, 8, 7, 1, 6, 3, 6, 5, 6, 7, 6, 9, 6, 0, 5, 2, 5, 4, 5, 6, 5, 8, 5 )
+lock_spaces = PoolVector2Array( 1, 7, 3, 7, 5, 7, 7, 7, 9, 7, 0, 6, 2, 6, 4, 6, 6, 6, 8, 6, 1, 5, 3, 5, 5, 5, 7, 5, 9, 5 )
+
+[node name="Goal" parent="GoalContainer" index="0"]
+goal_texture = ExtResource( 2 )
+max_needed = 15
+goal_value = "ice"
+
+[node name="Goal2" parent="GoalContainer" index="1" instance=ExtResource( 5 )]
+goal_texture = ExtResource( 4 )
+max_needed = 15
+goal_value = "lock"
+
+[node name="Goal3" parent="GoalContainer" index="2" instance=ExtResource( 5 )]
+goal_texture = ExtResource( 3 )
+max_needed = 50
+goal_value = "orange"

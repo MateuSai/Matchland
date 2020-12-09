@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MapSong.ogg-cd793e67f10b34dd7172e5af24e50bdc.oggstr"
+
+[deps]
+
+source_file="res://Sounds and Music/MapSong.ogg"
+dest_files=[ "res://.import/MapSong.ogg-cd793e67f10b34dd7172e5af24e50bdc.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

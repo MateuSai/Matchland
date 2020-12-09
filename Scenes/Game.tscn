@@ -1,0 +1,335 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Scripts/Grid.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/IceContainer.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/LockContainer.gd" type="Script" id=3]
+[ext_resource path="res://Sounds and Music/GameSong.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Scripts/VinesContainer.gd" type="Script" id=5]
+[ext_resource path="res://Art/UI/UI.png" type="Texture" id=6]
+[ext_resource path="res://Scripts/UI.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/GameOverScreen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Art/UI/Pause Button.png/0.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/VictoryScreen.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Art/Pieces/Blue Piece.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Art/UI/Pause Button.png/1.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/Camera2D.gd" type="Script" id=15]
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=16]
+[ext_resource path="res://Fonts/at01.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://Scenes/PowerupsTab.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Art/Background.png" type="Texture" id=19]
+[ext_resource path="res://Art/Board Tiles.png" type="Texture" id=20]
+[ext_resource path="res://Scripts/TileMap.gd" type="Script" id=21]
+
+[sub_resource type="Animation" id=5]
+resource_name = "change_scene"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/UI:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -50, -30 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Grid:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -320, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("IceContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -320, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LockContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -320, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("VinesContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -320, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=2]
+extra_spacing_char = 1
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 17 )
+
+[sub_resource type="TileSet" id=4]
+0/name = "Board Tiles.png 0"
+0/texture = ExtResource( 20 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 51, 51 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 0
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 260, Vector2( 0, 2 ), 4, Vector2( 1, 0 ), 320, Vector2( 1, 1 ), 325, Vector2( 1, 2 ), 5, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 1 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 17, 17 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 16 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/change_scene = SubResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+script = ExtResource( 15 )
+
+[node name="ShakeTween" type="Tween" parent="Camera2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" type="TextureRect" parent="CanvasLayer"]
+anchor_right = 1.0
+margin_bottom = 180.0
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HorizontalContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 54.0
+margin_top = 2.0
+margin_right = -18.0
+margin_bottom = -165.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/HorizontalContainer"]
+margin_right = 258.0
+margin_bottom = 13.0
+custom_constants/separation = 140
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/HorizontalContainer/HBoxContainer"]
+margin_right = 106.0
+margin_bottom = 13.0
+custom_constants/separation = 50
+
+[node name="LevelLabel" type="Label" parent="CanvasLayer/UI/HorizontalContainer/HBoxContainer/HBoxContainer"]
+margin_right = 32.0
+margin_bottom = 13.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 1 )
+text = "Level 0"
+valign = 1
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/UI/HorizontalContainer/HBoxContainer/HBoxContainer"]
+margin_left = 82.0
+margin_right = 106.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 24, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 2 )
+text = "000"
+align = 1
+valign = 1
+
+[node name="PauseButton" type="TextureButton" parent="CanvasLayer/UI/HorizontalContainer/HBoxContainer"]
+margin_left = 246.0
+margin_right = 258.0
+margin_bottom = 13.0
+texture_normal = ExtResource( 9 )
+texture_hover = ExtResource( 14 )
+stretch_mode = 5
+
+[node name="VerticalContainer" type="MarginContainer" parent="CanvasLayer/UI"]
+margin_left = 4.999
+margin_top = 3.0
+margin_right = 30.999
+margin_bottom = 104.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/VerticalContainer"]
+margin_right = 26.0
+margin_bottom = 130.0
+custom_constants/separation = 20
+
+[node name="CounterLabel" type="Label" parent="CanvasLayer/UI/VerticalContainer/VBoxContainer"]
+margin_right = 26.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 3 )
+text = "00"
+align = 1
+valign = 1
+
+[node name="GoalsContainer" type="VBoxContainer" parent="CanvasLayer/UI/VerticalContainer/VBoxContainer"]
+margin_top = 46.0
+margin_right = 26.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 84 )
+alignment = 1
+
+[node name="PauseMenu" parent="." instance=ExtResource( 13 )]
+
+[node name="PowerupsTab" parent="." instance=ExtResource( 18 )]
+
+[node name="VictoryScreen" parent="." instance=ExtResource( 11 )]
+
+[node name="GameOverScreen" parent="." instance=ExtResource( 8 )]
+
+[node name="Grid" type="Node2D" parent="."]
+script = ExtResource( 1 )
+width = 3
+height = 3
+x_start = 68
+y_start = 44
+offset = 17
+y_offset = 1
+
+[node name="DestroyTimer" type="Timer" parent="Grid"]
+wait_time = 0.5
+one_shot = true
+
+[node name="CollapseTimer" type="Timer" parent="Grid"]
+wait_time = 0.4
+one_shot = true
+
+[node name="RefillTimer" type="Timer" parent="Grid"]
+wait_time = 0.4
+one_shot = true
+
+[node name="TileMap" type="TileMap" parent="Grid"]
+z_index = -1
+tile_set = SubResource( 4 )
+cell_size = Vector2( 17, 17 )
+cell_custom_transform = Transform2D( 17, 0, 0, 17, 0, 0 )
+format = 1
+script = ExtResource( 21 )
+
+[node name="IceContainer" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="LockContainer" type="Node2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="VinesContainer" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="GoalContainer" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Goal" parent="GoalContainer" instance=ExtResource( 10 )]
+goal_texture = ExtResource( 12 )
+max_needed = 1
+goal_value = "blue"
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = 1.0
+autoplay = true
+[connection signal="create_goal" from="." to="CanvasLayer/UI" method="_on_Game_create_goal"]
+[connection signal="game_finished" from="." to="Grid" method="_on_Game_game_finished"]
+[connection signal="game_finished" from="." to="PowerupsTab" method="_on_Game_game_finished"]
+[connection signal="game_over" from="." to="GameOverScreen" method="_on_Game_game_over"]
+[connection signal="game_won" from="." to="VictoryScreen" method="_on_Game_game_won"]
+[connection signal="update_turns" from="." to="CanvasLayer/UI" method="_on_Game_update_turns"]
+[connection signal="pause_game" from="CanvasLayer/UI" to="PauseMenu" method="_on_UI_pause_game"]
+[connection signal="pressed" from="CanvasLayer/UI/HorizontalContainer/HBoxContainer/PauseButton" to="CanvasLayer/UI" method="_on_PauseButton_pressed"]
+[connection signal="item_selected" from="PowerupsTab" to="Grid" method="_on_PowerupsTab_item_selected"]
+[connection signal="camera_effect" from="Grid" to="Camera2D" method="_on_Grid_camera_effect"]
+[connection signal="check_goal" from="Grid" to="." method="check_goals"]
+[connection signal="check_goal" from="Grid" to="CanvasLayer/UI" method="_on_Grid_check_goal"]
+[connection signal="create_board" from="Grid" to="Grid/TileMap" method="_on_Grid_create_board"]
+[connection signal="create_ice" from="Grid" to="IceContainer" method="_on_Grid_create_ice"]
+[connection signal="create_lock" from="Grid" to="LockContainer" method="_on_Grid_create_lock"]
+[connection signal="create_obstacle_array" from="Grid" to="LockContainer" method="_on_Grid_create_obstacle_array"]
+[connection signal="create_obstacle_array" from="Grid" to="VinesContainer" method="_on_Grid_create_obstacle_array"]
+[connection signal="create_obstacle_array" from="Grid" to="IceContainer" method="_on_Grid_create_obstacle_array"]
+[connection signal="create_vines" from="Grid" to="VinesContainer" method="_on_Grid_create_vines"]
+[connection signal="damage_ice" from="Grid" to="IceContainer" method="_on_Grid_damage_ice"]
+[connection signal="damage_lock" from="Grid" to="LockContainer" method="_on_Grid_damage_lock"]
+[connection signal="damage_vines" from="Grid" to="VinesContainer" method="_on_Grid_damage_vines"]
+[connection signal="item_used" from="Grid" to="PowerupsTab" method="_on_Grid_item_used"]
+[connection signal="place_camera" from="Grid" to="Camera2D" method="_on_Grid_place_camera"]
+[connection signal="state_changed" from="Grid" to="PowerupsTab" method="_on_Grid_state_changed"]
+[connection signal="update_score" from="Grid" to="CanvasLayer/UI" method="_on_Grid_update_score"]
+[connection signal="update_turns" from="Grid" to="." method="_on_Grid_update_turns"]
+[connection signal="timeout" from="Grid/DestroyTimer" to="Grid" method="_on_DestroyTimer_timeout"]
+[connection signal="timeout" from="Grid/CollapseTimer" to="Grid" method="_on_CollapseTimer_timeout"]
+[connection signal="timeout" from="Grid/RefillTimer" to="Grid" method="_on_RefillTimer_timeout"]
+[connection signal="break_ice" from="IceContainer" to="." method="check_goals"]
+[connection signal="break_ice" from="IceContainer" to="CanvasLayer/UI" method="_on_IceContainer_break_ice"]
+[connection signal="break_lock" from="LockContainer" to="." method="check_goals"]
+[connection signal="break_lock" from="LockContainer" to="CanvasLayer/UI" method="_on_LockContainer_break_lock"]
+[connection signal="remove_lock" from="LockContainer" to="Grid" method="_on_LockContainer_remove_lock"]
+[connection signal="remove_vines" from="VinesContainer" to="Grid" method="_on_VinesContainer_remove_vines"]

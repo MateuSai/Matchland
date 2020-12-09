@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/UnlockLevel.wav-25af2ce09576fc3d95b171aaf55b7e50.sample"
+
+[deps]
+
+source_file="res://Sounds and Music/UnlockLevel.wav"
+dest_files=[ "res://.import/UnlockLevel.wav-25af2ce09576fc3d95b171aaf55b7e50.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

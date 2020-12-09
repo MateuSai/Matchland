@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Art/Obstacles/Concrete.png" type="Texture" id=2]
+[ext_resource path="res://Art/Obstacles/Anchor.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Goal.tscn" type="PackedScene" id=4]
+
+[node name="Level 12" instance=ExtResource( 1 )]
+turns = 15
+
+[node name="Grid" parent="." index="7"]
+width = 12
+height = 7
+concrete_spaces = PoolVector2Array( 0, 6, 1, 6, 2, 6, 3, 6, 4, 6, 5, 6, 6, 6, 7, 6, 8, 6, 9, 6, 10, 6, 11, 6, 0, 5, 1, 5, 2, 5, 3, 5, 4, 5, 5, 5, 6, 5, 7, 5, 8, 5, 9, 5, 10, 5, 11, 5, 0, 4, 1, 4, 2, 4, 3, 4, 4, 4, 5, 4, 6, 4, 7, 4, 8, 4, 9, 4, 10, 4, 11, 4 )
+total_anchors = 6
+
+[node name="Goal" parent="GoalContainer" index="0"]
+goal_texture = ExtResource( 2 )
+max_needed = 36
+goal_value = "Concrete"
+
+[node name="Goal2" parent="GoalContainer" index="1" instance=ExtResource( 4 )]
+goal_texture = ExtResource( 3 )
+max_needed = 6
+goal_value = "anchor"

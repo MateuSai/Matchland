@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Game.tscn" type="PackedScene" id=1]
+
+[node name="Level 3" instance=ExtResource( 1 )]
+turns = 8
+
+[node name="Grid" parent="." index="6"]
+width = 9
+height = 6
+empty_spaces = PoolVector2Array( 0, 0, 0, 5, 8, 5, 8, 0 )
+
+[node name="Goal" parent="GoalContainer" index="0"]
+max_needed = 10

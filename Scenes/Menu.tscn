@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Art/Sky.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/tinypixel/tinypixel.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Sounds and Music/MenuMusic.ogg" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 21
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 7
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[node name="Menu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CloudTimer" type="Timer" parent="."]
+wait_time = 0.001
+autostart = true
+
+[node name="ShipTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="BirdTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 320.0
+margin_bottom = 180.0
+custom_constants/separation = 120
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="VBoxContainer"]
+margin_right = 320.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+custom_fonts/font = SubResource( 1 )
+text = "Matchland"
+align = 1
+valign = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 160.0
+margin_right = 320.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 0.682353 )
+text = "Tap to continue"
+align = 1
+
+[node name="LabelTween" type="Tween" parent="VBoxContainer/Label"]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+[connection signal="timeout" from="CloudTimer" to="." method="_on_CloudTimer_timeout"]
+[connection signal="timeout" from="ShipTimer" to="." method="_on_ShipTimer_timeout"]
+[connection signal="timeout" from="BirdTimer" to="." method="_on_BirdTimer_timeout"]
+[connection signal="tween_completed" from="VBoxContainer/Label/LabelTween" to="." method="_on_LabelTween_tween_completed"]

@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Art/Map.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Shop.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Path.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/ItemsTab.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sounds and Music/UnlockLevel.wav" type="AudioStream" id=5]
+[ext_resource path="res://Scripts/Map.gd" type="Script" id=6]
+[ext_resource path="res://Art/UI/Cross.png" type="Texture" id=7]
+[ext_resource path="res://Scripts/QuitButton.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/ShopUI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sounds and Music/MapSong.ogg" type="AudioStream" id=10]
+
+[node name="MapScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+scroll_vertical_enabled = false
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Map"]
+margin_right = 480.0
+margin_bottom = 180.0
+texture = ExtResource( 1 )
+stretch_mode = 6
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Path" parent="Map/TextureRect" instance=ExtResource( 3 )]
+
+[node name="PathFollow2D" parent="Map/TextureRect/Path/ShipPath" index="0"]
+position = Vector2( 406.032, 137.618 )
+rotation = -1.64282
+offset = 843.0
+
+[node name="LevelContainer" type="Control" parent="Map/TextureRect"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shop" parent="Map/TextureRect" instance=ExtResource( 2 )]
+pause_mode = 0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="QuitButton" type="TextureButton" parent="UI"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 16.0
+margin_bottom = 16.0
+texture_normal = ExtResource( 7 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShopUI" parent="." instance=ExtResource( 9 )]
+
+[node name="ItemsTab" parent="." instance=ExtResource( 4 )]
+
+[node name="LevelUnlockSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="Song" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 10 )
+volume_db = 1.0
+autoplay = true
+[connection signal="change_ship_path_offset" from="Map" to="Map/TextureRect/Path" method="_on_Map_change_ship_path_offset"]
+[connection signal="move_ship_to_next_level" from="Map" to="Map/TextureRect/Path" method="_on_Map_move_ship_to_next_level"]
+[connection signal="show_coins_tab" from="Map" to="ItemsTab" method="_on_Map_show_coins_tab"]
+[connection signal="reached_next_level" from="Map/TextureRect/Path" to="Map" method="_on_Path_reached_next_level"]
+[connection signal="pressed" from="Map/TextureRect/Shop" to="ShopUI" method="_on_Shop_pressed"]
+[connection signal="pressed" from="UI/QuitButton" to="UI/QuitButton" method="_on_QuitButton_pressed"]
+
+[editable path="Map/TextureRect/Path"]
