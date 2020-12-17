@@ -33,7 +33,7 @@ func initialize() -> void:
 		spawn_completed_mark(20)
 		SaveGame.saved_data.last_level_completed = true
 		SaveGame.save_data()
-	else:
+	elif SaveGame.saved_data.last_level_completed == true:
 		levelContainer.get_child(19).get_node("CompletedMark").visible = true
 		
 	if SaveGame.saved_data.level >= 8 and not SaveGame.level_just_passed:
